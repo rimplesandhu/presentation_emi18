@@ -1,0 +1,780 @@
+%% Rimple Sandhu, Carleton University
+%% rimple_sandhu@outlook.com
+
+% Declare the theme
+\documentclass[xcolor=dvipsnames,10pt]{beamer}
+\renewcommand{\baselinestretch}{1.0} 
+\usepackage{setspace}
+% include the file with most used mathematical expressions 
+\usepackage[makeroom]{cancel}
+\usepackage{xfrac}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,chains,positioning,fit,calc}
+\usepackage{cleveref}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{amsfonts,amssymb,latexsym}
+\usepackage{amsmath}
+\usepackage{upgreek}
+\colorlet{shadecolor}{gray!90}
+%% mathematical symbols
+\newcommand{\df}{\displaystyle\frac}
+\newcommand{\ik}[1]{\textit{#1}}
+\newcommand{\epar}[1]{\mbox{$e_{#1}$}}
+\newcommand{\deter}[1]{\mbox{$|#1|$}}
+\newcommand{\boldbb}[1]{\mbox{\boldmath $\mathbb {#1}$}}
+\newcommand{\boldcal}[1]{\mbox{\boldmath $\mathcal {#1}$}}
+\newcommand{\rtext}[1]{{\color{red}{#1}}}
+\newcommand{\btext}[1]{{\color{blue}{#1}}}
+\newcommand{\U}{\mathcal{U}}
+\def\bvarepsilon{\mbox{\boldmath $\varepsilon$}}
+\def\balpha{\mbox{\boldmath $\alpha$}}
+\def\bbeta{\mbox{\boldmath $\beta$}}
+\def\bsigma{\mbox{\boldmath $\sigma$}}
+\def\bxi{\mbox{\boldmath $\xi$}}
+\def\betaa{\mbox{\boldmath $\eta$}}
+\def\brho{\mbox{\boldmath $\rho$}}
+\def\bmu{\mbox{\boldmath $\mu$}}
+\def\bnu{\mbox{\boldmath $\nu$}}
+\def\bzeta{\mbox{\boldmath $\zeta$}}
+\def\bpsi{\mbox{\boldmath $\psi$}}
+\def\blambda{\mbox{\boldmath $\lambda$}}
+\def\bnabla{\mbox{\boldmath $\nabla$}}
+\def\btheta{\mbox{\boldmath $\theta$}}
+ \def\bvarphi{\mbox{\boldmath $\varphi$}}
+ \def\bkappa{\mbox{\boldmath $\kappa$}}
+ 
+% Bold capital Greek letters
+\def\bLambda{\mbox{\boldmath $\Lambda$}}
+\def\bOmega{\mbox{\boldmath $\Omega$}}
+\def\bOmhat{\mbox{\boldmath $\hat \Omega$}}
+\def\bPhi{\mbox{\boldmath $\Phi$}}
+\def\bPsi{\mbox{\boldmath $\Psi$}}
+\def\bDelta{\mbox{\boldmath $\Delta$}}
+\def\bTheta{\mbox{\boldmath $\Theta$}}
+\def\bDelta{\mbox{\boldmath $\Delta$}}
+\def\bSigma{\mbox{\boldmath $\Sigma$}}
+\def\bVarphi{\mbox{\boldmath $\Varphi$}}
+
+% Bold face capital letters
+\def\Ex{\mbox{\text{E}}}
+\def\bF{\mbox{\bf F}}
+\def\bG{\mbox{\bf G}}
+\def\bH{\mbox{\bf H}}
+\def\bI{\mbox{\bf I}}
+\def\bJ{\mbox{\bf J}}
+\def\bK{\mbox{\bf K}}
+\def\bQ{\mbox{\bf Q}}
+
+\newcommand{\bbD}{\mathcal{\mbox{\bf D}}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\pL}{\mathcal{LP}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\Q}{\mathcal{Q}}
+\newcommand{\calS}{\mathcal{S}}
+\def\bbM{\mbox{$\M$}}
+%\def\N{\mbox{$\text{N}$}}
+\def\LN{\mbox{$\text{LN}$}}
+\def\Hess{\mbox{$\text{H}$}}
+\def\R{\mathbb R}
+\def\bbMnum{\mbox{$\bbM_{\text{num}}$}}
+\def\th{\ensuremath{\theta}}
+\def\dth{\ensuremath{\dot{\theta}}}
+\def\ddth{\ensuremath{\ddot{\theta}}}
+\def\dthh{\ensuremath{{\theta'}}}
+\def\ddthh{\ensuremath{{\theta''}}}
+\def\prob{\mbox{$\text{p}$}}
+\def\Prob{\mbox{$\text{P}$}}
+\def\moment{\mbox{$M_{\text{EA}}$}}
+\def\bx{\mbox{\bf u}}
+\def\bxj{\mbox{$\bx_j$}}
+\def\bxja{\mbox{$\bx_j^a$}}
+\def\bxjf{\mbox{$\bx_j^f$}}
+\def\bxjp{\mbox{$\bx_{j+1}$}}
+\def\bxjpf{\mbox{$\bx_{j+1}^f$}}
+\def\bxjk{\mbox{$\bx_{j(k)}$}}
+\def\bxjkf{\mbox{$\bx_{j(k)}^f$}}
+\def\bxjkpf{\mbox{$\bx_{j(k+1)}^f$}}
+\def\bxjka{\mbox{$\bx_{j(k)}^a$}}
+\def\bxjkp{\mbox{$\bx_{j(k+1)}$}}
+\def\bd{\mbox{\bf d}}
+\def\by{\mbox{\bf y}}
+\def\bdk{\mbox{$\bd_k$}}
+\def\bdkp{\mbox{$\bd_{k+1}$}}
+\def\bdtok{\mbox{$\bd_{1:k}$}}
+\def\bdtokm{\mbox{$\bd_{1:k-1}$}}
+\def\bdn{\mbox{$\bD$}}
+\def\bq{\mbox{\bf q}}
+\def\bqj{\mbox{$\bq_j$}}
+\def\barqj{\mbox{$\bar{\bq}_j$}}
+\def\bQj{\mbox{$\bQ_j$}}
+\def\Mtrue{\mbox{$\M_{\text{true}}$}}
+
+\def\np{\ensuremath{n_{\phi}}}
+\def\nu{\ensuremath{n_{u}}}
+\def\ns{\ensuremath{n_{\psi}}}
+\def\nd{\ensuremath{n_{d}}}
+
+\def\bA{\mbox{\bf A}}
+\def\bB{\mbox{\bf B}}
+\def\bC{\mbox{\bf C}}
+\def\bD{\mbox{\bf D}}
+
+\def\bAj{\mbox{$\bA_j$}}
+\def\bBj{\mbox{$\bB_j$}}
+\def\bCk{\mbox{$\bC_k$}}
+\def\bDk{\mbox{$\bD_k$}}
+
+\def\bg{\mbox{\bf g}}
+\def\bh{\mbox{\bf h}}
+\def\bgj{\mbox{$\bg_j$}}
+\def\bhk{\mbox{$\bh_k$}}
+\def\bff{\mbox{\bf f}}
+\def\bffj{\mbox{$\bff_j$}}
+
+\def\sphi{\ensuremath{\phi}}
+\def\bphi{\mbox{\ensuremath{\upphi}}}
+\def\beps{\mbox{\ensuremath{\upepsilon}}}
+\def\bGamma{\mbox{\boldmath $\Gamma$}}
+\def\bepsk{\mbox{$\beps_k$}}
+\def\bGammak{\mbox{$\bGamma_k$}}
+\def\barepsk{\mbox{$\bar{\beps}_k$}}
+\def\bP{\mbox{\bf P}}
+\def\bPja{\mbox{$\bP_j^a$}}
+\def\bPjf{\mbox{$\bP_j^f$}}
+\def\bPjpf{\mbox{$\bP_{j+1}^f$}}
+\def\bPjk{\mbox{$\bP_{j(k)}$}}
+\def\bPjkf{\mbox{$\bP_{j(k)}^f$}}
+\def\bPjkpf{\mbox{$\bP_{j(k+1)}^f$}}
+\def\bPjka{\mbox{$\bP_{j(k)}^a$}}
+\def\tj{\mbox{$t_j$}}
+\def\dtj{\mbox{$\Delta t_j$}}
+\def\tjp{\mbox{$t_{j+1}$}}
+\def\tjk{\mbox{$t_{j(k)}$}}
+\def\dtjk{\mbox{$\Delta t_{j(k)}$}}
+\def\tjkp{\mbox{$t_{j(k+1)}$}}
+\newlength{\figwidthb}
+\setlength{\figwidthb}{0.32\textwidth}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\seq}[1]{\begin{equation} \begin{split} #1 \end{split} \end{equation}}
+\newcommand{\boxedseq}[1]{\begin{equation}\boxed{ \begin{split} #1 \end{split}} \end{equation}}
+
+\def\Ex{\mbox{$\text{E}$}}
+\def\bphis{\ensuremath{\bphi^*}}
+\def\phis{\ensuremath{\phi^*}}
+\def\smle{\ensuremath{\bpsi_{\text{mle}}}}
+\def\smap{\ensuremath{\bpsi_{\text{map}}}}
+\def\amap{\ensuremath{\alpha_{\text{map}}}}
+\def\mle{\ensuremath{\bphi_{\text{mle}}}}
+\def\map{\ensuremath{\bphi_{\text{map}}}}
+\def\emap{\ensuremath{\hat{\bphi}_{\text{map}}}}
+\def\bphid{\ensuremath{\bphi'}}
+\def\bphidd{\ensuremath{\bphi''}}
+\def\mud{\mbox{$\mu_f$}}
+\def\sigd{\mbox{$\sigma_f$}}
+\def\bphig{\ensuremath{\bphi^{(g)}}}
+\def\bphij{\ensuremath{\bphi^{(j)}}}
+\def\bphik{\ensuremath{\bphi_{\text{-}\psi}}}
+\def\bphiu{\ensuremath{\bphi_{\psi}}}
+\def\phig{\ensuremath{\phi^{(g)}}}
+\def\phij{\ensuremath{\phi^{(j)}}}
+\def\phii{\ensuremath{\phi^{(i)}}}
+\def\Rey{\ensuremath{\text{Re}_{c}}}
+\def\Cm{\ensuremath{\text{C}_{m}(\th)}}
+\def\ths{\ensuremath{\bphi^{\star}}}
+\def\ts{\ensuremath{\phi^{\star}}}
+\def\d{\mbox{d}}
+\def\dt{\ensuremath{\Delta t}}
+\def\ACT{\ensuremath{\tau_\text{int}}}
+\def\eACT{\ensuremath{\hat{\tau}_\text{int}}}
+\def\eACTm{\ensuremath{\hat{\tau}_\text{int}^{\text{max}}}}
+\def\bphiad{\ensuremath{\bphi_{\text{ad}}}}
+\def\IEA{\ensuremath{I_{\text{EA}}}}
+
+\let\originaleqref\eqref
+\renewcommand{\eqref}{Eq.~\originaleqref}
+
+% added for unsteady
+\def\Mac{\mbox{$M_{ac}$}}
+\def\Mea{\mbox{$M_{ea}$}}
+\def\dMea{\mbox{$\dot{M}_{ea}$}}
+\def\ddMea{\mbox{$\ddot{M}_{ea}$}}
+\def\dddMea{\mbox{$\dddot{M}_{ea}$}}
+\def\dddth{\mbox{$\dddot{\theta}$}}
+\def\ddddth{\mbox{$\ddddot{\theta}$}}
+\def\dMm{\mbox{$\dot{M}$}}
+\def\w{\mbox{$\omega$}}
+\def\wf{\mbox{$\omega_f$}}
+\def\dCm{\mbox{$\dot{C}_{M}$}}
+\def\ddCm{\mbox{$\ddot{C}_{M}$}}
+\def\dddCm{\mbox{$\dddot{C}_{M}$}}
+\def\cLift{\ensuremath{L}}
+\def\half{\mbox{$\df{1}{2}$}}
+\def\Cm{\ensuremath{C_{M}}}
+\def\ah{\mbox{$a_h$}}
+\def\metre{\mbox{$\text{ m}$}}
+\def\Uinf{\mbox{$U$}}
+\def\wth{\mbox{$\omega_{\theta}$}}
+\def\rth{\mbox{$r_{\theta}$}}
+\def\wcl{\mbox{$\omega_{c}$}}
+\def\dn{\mbox{$d_{1:n}$}}
+\def\rcl{\mbox{$r_{c}$}}
+\def\wdv{\mbox{$\text{w}_{3c/4}$}}
+\def\qtil{\mbox{$\tilde{q}$}}
+
+\newcommand{\dder}[2]{\ensuremath{\df{d^2 #1}{d{#2}^2}}}
+\newcommand{\der}[2]{\ensuremath{\df{d #1}{d{#2}}}}
+\newcommand{\expn}[1]{\ensuremath{\exp \left\{{#1}\right\} } }
+
+
+\usepackage{cleveref}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,chains,positioning,fit,calc}
+% The theme
+% options: CambridgeUS, default, Boadilla, Madrid, Singapore, Copenhagen
+\usetheme{CambridgeUS}
+
+% your block environment formatting
+% options: lily (Default), orchid, rose
+\usecolortheme{rose}
+
+% Your frametitle and footline colouring
+% options: whale, seahorse, dolphin, beaver, crane, dove, seagull
+\usecolortheme{seahorse}
+   
+% Change the geometry of items in itemize list
+% Options: ball, circle, rectangle, default
+\setbeamertemplate{items}[circle]
+
+% no shadow
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+% colour of block headline and bullet
+% see http://www.math.umbc.edu/~rouben/beamer/quickstart-Z-H-25.html#node_tag_Temp_50
+% some good colors: RawSienna, Sepia, BrickRed
+\usecolortheme[named=Black]{structure}
+
+% getting rid of navigation symbols on the slide on botton right corner
+% uncomment if you want those
+\setbeamertemplate{navigation symbols}{} 
+
+% text font
+%\usefonttheme{serif}
+
+% Explicitly format the headline, footline and frametitle
+\setbeamertemplate{headline}{}
+\setbeamertemplate{frametitle}{
+\begin{beamercolorbox}[wd=\paperwidth, ht=0.4in]{frametitle}
+\hbox{\hspace{0.2in}\insertframetitle}\\[-0.1in] \rule{\paperwidth}{2pt}
+\end{beamercolorbox}}
+
+%% user defined environment for ease in coding
+% for new figure
+\newcommand{\newfigure}[2]{\begin{figure}\centering 
+\includegraphics[width=#1\linewidth]{figs/#2}\end{figure}\vspace{-0.2in}}
+% for centered alert
+\newcommand{\alertb}[1]{\begin{center}\alert{#1}\end{center}}
+\newcommand{\red}[1]{{\textcolor{red}{#1}}}
+\newcommand{\blue}[1]{{\textcolor{blue}{#1}}}
+% for itemize block
+\newenvironment{newblockc}[1]
+{\begin{block}{#1}\begin{itemize}\small
+  \setlength{\itemsep}{4pt}}
+{\end{itemize}\end{block}}
+% items of newblockc
+\newcommand{\itb}[1]{\item #1}
+% Block with no bulleted list
+\newcommand{\newblockb}[2]{\begin{block}{#1} \small #2 \end{block}}
+% equation shortcuts
+\newcommand{\eqa}[1]{\vspace{0.05in} \begin{center} $#1$ \end{center} \vspace{0.05in}}
+
+%% presentation details needed in footline and title page generation
+\title[EMI 2018]{\normalsize Automatic relevance determination priors in Bayesian model selection: Application to nonlinear fluid-structure interaction systems}
+%\subtitle{Include Only If Paper Has a Subtitle}
+\author[R.~Sandhu \textit{et al.}] % (optional, use only with lots of authors)
+{\normalsize R.~Sandhu\inst{1}, C.~Pettit\inst{2}, M.~Khalil\inst{1,3},  A.~Sarkar\inst{1} and D.~Poirel\inst{4}}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different affiliation.
+
+\institute[] % (optional, but mostly needed)
+{
+  \inst{1}%
+  Carleton University, Ottawa, ON, Canada
+      \and
+  \inst{2}%
+  United States Naval Academy, Annapolis, MD, USA
+    \and
+    \inst{3}%
+Sandia National Laboratories, Livermore, CA, USA
+  \and
+  \inst{4}%
+  Royal Military College of Canada, Kingston, ON, Canada
+
+\vspace{0.02in}
+
+  }
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in street address.
+
+\date[May 29 - June 1, 2018] % (optional, should be abbreviation of conference name)
+{{\begin{center}\footnotesize EMI 2018 \\
+Boston, MA, USA \\
+May 29 - June 1, 2018\end{center}}
+{\tiny \it 
+Sandia National Laboratories is a multimission laboratory managed and operated by National Technology and Engineering Solutions of Sandia, LLC., a wholly owned subsidiary of Honeywell International, Inc., for the U.S. Department of Energy's National Nuclear Security Administration under contract DE-NA-0003525.
+}}
+
+
+% This is only inserted into the PDF information catalog. Can be left out. 
+\subject{Non-deterministic approaches in aeroelasticity}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+
+
+\begin{frame}{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+\section{Problem definition}
+
+%\begin{frame}{Introduction}
+%\begin{newblockc}{Why model selection?}
+%\itb{When dealing with nontrivial physics under limited a priori understanding of the system, multiple plausible models can be envisioned to represent the system with a reasonable accuracy.}
+%\itb{A complex model overfits the data but results in a higher model prediction uncertainty.}
+%\itb{A simpler model misfits the data but results in a lower model prediction uncertainty.}
+%\itb{An “optimal” model provides a balance between data-fit and prediction uncertainty.}
+%\end{newblockc}
+%\end{frame}
+
+\begin{frame}{Problem definition}
+\begin{minipage}[b]{0.48\linewidth}\begin{newblockc}{Nonlinear aeroelastic oscillator}
+\itb{Pure pitch (dof: 1) limit cycle oscillations (LCO) of a 2-D rigid airfoil in a transitional Re regime}
+%\itb{Pure pitch or $\th(t)$ motion only}
+\end{newblockc}
+\end{minipage}
+\begin{minipage}[b]{0.48\linewidth}
+\newfigure{0.9}{wing.eps}
+\end{minipage}
+\newfigure{0.85}{raw_8p5.eps} \vspace{0.2in}
+Goal: Identify the nature of unsteady and nonlinear aerodynamics causing the LCO by assimilating the noisy wind-tunnel observations.
+\end{frame}
+
+\begin{frame}{Problem definition}
+\newblockb{Candidate model set: $\{\M_1, \M_2, \M_3, \M_4 \}$}{
+Eq. of motion (Known): \\
+$
+\IEA \ddth + D \dth + K \th + K' \th^3  = D' \text{sign}(\dth) + \df{1}{2}\rho U^2c^2s\, \red{\Cm(\th,\dth,\ddth)}$ \\[0.1in]
+Possible models of aerodynamics ($\Cm$): \\[0.1in]
+$\M_1$ : $Cm = \epar{1} \th + \epar{2} \dth + \epar{3} \th^3 + \epar{4} \th^2 \dth + \blue{\sigma \xi(\tau)}$ \\[0.1in]
+$\M_2$ : $\Cm = \epar{1} \th + \epar{2} \dth + \epar{3} \th^3 + \epar{4} \th^2 \dth +  \epar{5} \th^5 +  \epar{6} \th^4 \dth  + \blue{\sigma \xi(\tau)}$ \\[0.1in]
+$\M_3$ : $ \df{\dCm}{B} + \Cm = \epar{1} \th + \epar{2} \dth + \epar{3} \th^3 + \epar{4} \th^2 \dth   + \df{c_6}{B} \ddth  + \blue{\sigma \xi(\tau) }$\\[0.1in]
+$\M_4$ : $ \df{\dCm}{B} + \Cm = \epar{1} \th + \epar{2} \dth + \epar{3} \th^3 + \epar{4} \th^2 \dth +  \epar{5} \th^5 +  \epar{6} \th^4 \dth  + \df{c_6}{B} \ddth  + \blue{\sigma \xi(\tau)} $ \\[0.1in]
+
+Measurement equation:
+\beq
+d_k = \th_k + \epsilon_k \;\; ; \;\;\; k = 1, \ldots, \nd
+\eeq
+}
+\alertb{Bayesian model selection in discrete model space}
+\end{frame}
+
+
+\begin{frame}{Problem definition}
+\newblockb{Bayesian model selection in discrete model space}{ Given observational data $\bdn$ = $\{\bd_1,\bd_2$, $\ldots, \bd_{\nd}\}$ and a candidate model set $\bbM$ = $ \{\M_1,\M_2\ldots\M_i\ldots\M_P\}$, the posterior model probability is calculated as 
+\beq
+\Prob(\M_i |\bdn,\bbM) = \df{\prob(\bdn |\M_i) \Prob(\M_i |\bbM)}{\prob(\bdn |\bbM)}
+\eeq 
+where $\prob(\bdn |\M_i)$ is the model evidence, which embodies the principle of Ockham's razor,
+\beq
+\underbrace{\ln \prob(\bdn|\M_i)}_\text{Log-evidence} =  \int \prob(\bdn|\bphi) \prob(\bphi) d \bphi = \;\;\underbrace{\Ex[\ln \prob(\bdn|\bphi,\M_i)]}_\text{Goodness-of-fit} - \underbrace{\Ex\left[\ln\df{\prob(\bphi|\bdn,\M_i)}{\prob(\bphi|\M_i)}\right]}_\text{Information gain (EIG)}
+\eeq}
+\textcolor{shadecolor}{ 
+Sandhu \textit{et al.}, CMAME, 2017. \\
+Sandhu \textit{et al.}, JCP, 2016. \\
+Sandhu \textit{et al.}, CMAME, 2014.\\
+Khalil \textit{et al.}, JSV, 2013}
+\end{frame}
+
+
+\begin{frame}{Problem definition}
+\begin{newblockc}{Practical hurdles in implementing Bayesian model selection in discrete model space}
+\itb{Sensitivity of parameter prior distribution to the posterior model probability or the model evidence}
+\itb{Missing out on better candidate models}
+\end{newblockc}
+\alertb{Solution: Automatic relevance determination (ARD)}
+\end{frame}
+
+\section{Automatic Relevance Determination (ARD)}
+
+
+\begin{frame}{Automatic Relevance Determination (ARD)}
+\begin{newblockc}{Reformulating  the model selection problem:}
+\itb{An encompassing model $\M$:\\[0.1in]  $\df{\dCm}{B} + \Cm = a_1 \th + a_2 \dth + a_3 \th^3 + a_4 \th^2 \dth +  a_5 \th^5 +  a_6 \th^4 \dth  + \df{c_6}{B} \ddth  + \sigma \xi(\tau)$}
+\itb{The question we ask: Given measurements $\bdn$, find the optimal model nested under the overly-complicated encompassing model?}
+\end{newblockc}
+\end{frame}
+
+
+\begin{frame}{Automatic Relevance Determination (ARD)}
+\newblockb{Physics-driven + Data-driven + Prior knowledge}{Hybrid approach for assigning prior distributions by categorizing parameters based on prior knowledge about the aerodynamics as \blue{Required} (\bphik) or \red{Contentious} (\bphiu)\\ 
+$\df{\dCm}{\blue{B}} + \Cm = \blue{a_1} \th + \blue{a_2} \dth + \red{a_3} \th^3 + \red{a_4} \th^2 \dth +  \red{a_5} \th^5 +  \red{a_6} \th^4 \dth  + \df{c_6}{B} \ddth  + \blue{\sigma} \xi(\tau)$}
+\vspace{0.1in}
+{
+\renewcommand{\arraystretch}{2.0}
+%\renewcommand{\tabcolsep}{1pt}
+\begin{table}[!htbp]
+\small
+\centering
+\begin{tabular}{|c||c|}
+\hline
+\multicolumn{2}{|c|}{Prior pdf, $\prob(\bphi|\bpsi)$ = $\prob(\bphik)\prob(\bphiu|\bpsi)$} \\
+\multicolumn{2}{|c|}{Hyper-parameter, $\bpsi = \{\alpha_1, \alpha_2, \alpha_3, \alpha_4\}$ } \\ \hline
+\blue{$\prob(\bphik)$} &  $ \cL(B|0.2, 50) \; \U(a_1| {-2},0) \; \U(a_2| {-2},0) \; \cL(\sigma |0.002,50) $  \\
+\red{$\prob(\bphiu|\bpsi)$} & ARD prior, $\N\left(a_3|0,\frac{1}{\alpha_1}\right)\N\left(a_4|0,\frac{1}{\alpha_2}\right)\N\left(a_5|0,\frac{1}{\alpha_3}\right)\N\left(a_6|0,\frac{1}{\alpha_4}\right)$   \\ \hline 
+\end{tabular}
+\label{tab:t3}
+\end{table}
+}
+\end{frame}
+
+
+\begin{frame}{Automatic Relevance Determination (ARD)}
+%\begin{newblockc}{Relevance through ARD prior}
+%\itb{$\alpha_i = \infty$ means both prior and posterior pdf are a dirac delta function at zero. }
+%\itb{All possible models nested under $\M$ can be construed by varying $\bpsi$ }
+%\end{newblockc}
+\begin{newblockc}{Using hierarchical Bayes approach:}
+\itb{Posterior pdf $\prob(\bpsi|\bd)$ of hyper-parameter vector $\bpsi$,
+\beq
+\prob(\bpsi|\bd) = \df{\prob(\bd|\bpsi) \prob(\bpsi)}{\prob(\bd)}
+\eeq}
+\itb{Assuming flat prior for $\prob(\bpsi)$ \red{Task: Stochastic optimization},
+\beq
+\smap = arg  \max_{\bpsi} \{\prob(\bdn|\bpsi)\}
+\eeq}
+\itb{Model evidence as a function of hyper-parameter \red{Task: Evidence computation},
+\beq \label{eq:evidence_int} \prob(\bdn|\bpsi) = \int \prob(\bdn|\bphi) \prob(\bphi|\bpsi) d \bphi 
+\eeq}
+\itb{Likelihood computation \red{Task: State estimation},
+\beq 
+\prob(\bdn|\bphi) = \prod_{k=1}^{\nd} \int \prob(\bdk|\bxjk,\bphi) \prob(\bxjk|\bdtokm,\bphi) d
+\bxjk
+\eeq}
+\end{newblockc}
+%\alertb{Optimal nested model $\equiv$ Encompassing model with prior $\prob(\bphi|\smap)$}
+\end{frame}
+
+\begin{frame}{Automatic Relevance Determination (ARD)}
+\begin{newblockc}{Numerical implementation}
+\itb{Evidence optimization: Derivative-free methods including line-search, \red{pattern search}, simplex method, evolutionary algorithms; and many others.}
+\itb{Evidence computation: \red{Chib-Jeliazkov method}, Transitional MCMC, Power posteriors, Nested sampling, Annealed importance sampling, Harmonic mean estimator, Gauss-Hermite quadrature; and many others.}
+\itb{MCMC sampler for Chib-Jeliazkov method: Metropolis-Hastings, Gibbs, TMCMC, adaptive Metropolis, \red{Delayed Rejection Adaptive Metropolis(DRAM)}; and many others}
+\itb{State estimation: Kalman filter, \red{Extended Kalman filter}, unscented Kalman filter, ensemble Kalman filter, particle filter; and many others. }
+\end{newblockc}
+\end{frame}
+
+
+\section{Numerical results: Unidimensional ARD}
+\begin{frame}{Numerical results: Unidimensional ARD}
+\newblockb{ARD prior for a relevant parameter}{Model proposed same as the data-generating model:
+\beq \label{eq:aODE}
+\df{\dCm}{\blue{B}} + \Cm = \blue{a_1} \th + \blue{a_2} \dth + \red{a_3} \th^3 + \blue{a_4} \th^2 \dth + \df{c_6}{\blue{B}} \ddth  + \blue{\sigma} \xi(\tau) ,
+\eeq
+Case 1: Gaussian ARD prior:
+\beq
+\prob(\bphi|\bpsi) = \cL(B|0.2, 50) \U(a_1| {-2},0)\U(a_2| {-2},0) \; \red{\N(a_3|0,1/\alpha)} \; \U(a_4|{-600},0)\cL(\sigma |0.002,50)
+\eeq
+Case 2: Laplace ARD prior:
+\beq
+\prob(\bphi|\bpsi) = \cL(B|0.2, 50) \U(a_1| {-2},0)\U(a_2| {-2},0) \; \red{\pL(a_3|0,1/\alpha)} \; \U(a_4|{-600},0)\cL(\sigma |0.002,50)
+\eeq}
+\newfigure{0.25}{gauss_vs_laplace.eps}
+\end{frame}
+
+\begin{frame}{Numerical results: Unidimensional ARD}
+\newblockb{Observations:}{
+- Change in log-evidence driven by loss of goodness-of-fit due to removal of $a_3$\\
+- Log-evidence has higher slope near maxima and is minimally sloped elsewhere\\
+- Both Laplace prior and Gaussian prior results in same parameter sparsity level.   
+}
+\newfigure{0.65}{uni/fig_E01.eps}
+\end{frame}
+
+%
+%\begin{frame}[fragile]{Numerical results: Unidimensional ARD}
+%\newblockb{ARD prior for a relevant parameter}{Evidence optimization using Pattern search algorithm from DAKOTA library\\
+%- method =  asynch\_pattern\_search \\
+%- initial\_delta = 3.0 \\
+%- contraction\_factor = 0.5 \\
+%- threshold\_delta = 1.0 (\red{Large enough to overcome sampling error!})}
+%\small
+%\begin{verbatim}
+%eval_id_interface             x1         obj_fn 
+%1            NO_ID             -8   -27810.12249 
+%2            NO_ID            -11   -27806.66866 
+%3            NO_ID             -5   -27813.56397 
+%4            NO_ID             -2   -27776.23808 
+%5            NO_ID           -3.5   -27813.59085 
+%6            NO_ID           -1.5   -27733.59679 
+%7            NO_ID           -5.5   -27812.92908 
+%8            NO_ID           -2.5   -27802.01208 
+%9            NO_ID           -4.5    -27813.8383 
+%10           NO_ID           -6.5   -27811.79282
+%<<<<< Best parameters          = -4.5000000000e+00
+%<<<<< Best objective function  = -2.7813838302e+04
+%\end{verbatim}
+%\end{frame}
+
+
+\begin{frame}{Numerical results: Unidimensional ARD}
+\begin{center}
+Effect of using zero-mean ARD priors on parameter estimates
+\end{center}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\figwidthb]{figs/uni/mpdf_4_FLAT.eps}
+\includegraphics[width=\figwidthb]{figs/uni/mpdf_4_GAUSS.eps} 
+\includegraphics[width=\figwidthb]{figs/uni/mpdf_4_LAP.eps}\\
+\caption{Comparison of marginal posterior pdf of parameter $a_3$ obtained using optimized Gaussian and Laplace ARD prior, compared with the marginal posterior obtained using a flat prior for parameter $a_3$. }
+\label{fig:md3}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Numerical results: Unidimensional ARD}
+\newblockb{ARD prior for an irrelevant parameter}{Model proposed has an additional term than the data-generating model: \\
+\beq \label{eq:aODE}
+\df{\dCm}{B} + \Cm = a_1 \th + a_2 \dth + a_3 \th^3 + a_4 \th^2 \dth + \red{a_5\th^5} + \df{c_6}{B} \ddth  + \sigma \xi(\tau) ,
+\eeq 
+\seq{
+\prob(\bphi|\bpsi) = & \cL(B|0.2, 50) \U(a_1| {-2},0)\U(a_2| {-2},0) \U(a_3|{-250},250)   \\
+&\; \U(a_4|{-600},0) \red{\N(a_5|0,1/\alpha)} \cL(\sigma |0.002,50)
+}
+Observations: \\
+- The change in log-evidence is driven by the decrease in Complexity (EIG) due to the removal of irrelevant parameter. \\
+- Log-evidence is flat in regions higher the optimal hyperparameter}
+\newfigure{0.8}{uni/fig_02.eps}
+\end{frame}
+
+
+%
+%\begin{frame}[fragile]{Numerical results: Unidimensional ARD}
+%\newblockb{ARD prior for an irrelevant parameter}{Evidence optimization using Pattern search algorithm from DAKOTA library\\
+%- method =  asynch\_pattern\_search \\
+%- initial\_delta = 3.0 \\
+%- contraction\_factor = 0.5 \\
+%- threshold\_delta = 1.0 (\red{Large enough to overcome sampling error})\\
+%- Maximum bound = 4.0 \red{(Important!)}}
+%\small
+%\begin{verbatim}
+%%eval_id interface             x1         obj_fn 
+%1            NO_ID             -8   -27811.67396 
+%2            NO_ID            -11   -27808.20306 
+%3            NO_ID             -5   -27813.59631 
+%4            NO_ID             -2   -27813.28177 
+%5            NO_ID           -3.5   -27813.45931 
+%6            NO_ID           -6.5   -27813.24228 
+%<<<<< Best parameters          = -5.0000000000e+00 x1
+%<<<<< Best objective function  = -2.7813596314e+04
+%\end{verbatim}
+%\end{frame}
+
+
+
+\section{Numerical results: Multidimensional ARD}
+\begin{frame}{Numerical results: Multidimensional ARD}
+
+\newblockb{Model proposed:}{
+\beq \label{eq:mdODE}
+\blue{\df{\dCm}{B}} + \Cm = \blue{a_1 \th} + \blue{a_2 \dth} + \red{a_3 \th^3} + \red{a_4 \th^2 \dth} +  \red{a_5 \th^5} +  \red{a_6 \th^4 \dth}  + \blue{\df{c_6}{B} \ddth}  + \blue{\sigma \xi(\tau)}
+\eeq}
+{
+\renewcommand{\arraystretch}{2.0}
+%\renewcommand{\tabcolsep}{1pt}
+\begin{table}[!htbp]
+\small
+\centering
+\begin{tabular}{|c||c|}
+\hline
+\multicolumn{2}{|c|}{Prior pdf, $\prob(\bphi|\bpsi)$ = $\prob(\bphik)\prob(\bphiu|\bpsi)$} \\
+\multicolumn{2}{|c|}{Hyper-parameter, $\bpsi = \{\alpha_1, \alpha_2, \alpha_3, \alpha_4\}$ } \\ \hline
+\blue{$\prob(\bphik)$} &  $ \cL(B|0.2, 50) \; \U(a_1| {-2},0) \; \U(a_2| {-2},0) \; \cL(\sigma |0.002,50) $  \\
+\red{$\prob(\bphiu|\bpsi)$} & ARD prior, $\N\left(a_3|0,\frac{1}{\alpha_1}\right)\N\left(a_4|0,\frac{1}{\alpha_2}\right)\N\left(a_5|0,\frac{1}{\alpha_3}\right)\N\left(a_6|0,\frac{1}{\alpha_4}\right)$   \\ \hline 
+\end{tabular}
+\label{tab:t3}
+\end{table}
+}
+\end{frame}
+
+
+
+\begin{frame}{Numerical results: Multidimensional ARD}
+\newfigure{0.85}{fig_04.eps}
+%\alertb{Output of evidence maximization}
+\newfigure{0.65}{fig_01.eps}
+\end{frame}
+
+
+
+\begin{frame}{Numerical results: Multidimensional ARD}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.97\figwidthb]{figs/mpdf_4.eps}
+\includegraphics[width=0.97\figwidthb]{figs/mpdf_5.eps}
+\includegraphics[width=1.1\figwidthb]{figs/jpdf_4_5.eps}\\
+\includegraphics[width=0.97\figwidthb]{figs/10_PE_U1_OPTIMAL/mpdf_4.eps}
+\includegraphics[width=0.97\figwidthb]{figs/10_PE_U1_OPTIMAL/mpdf_5.eps}
+\includegraphics[width=1.1\figwidthb]{figs/10_PE_U1_OPTIMAL/jpdf_4_5.eps}
+\caption{Comparison of marginal and joint posterior pdf of relevant parameters $a_3$ and $a_4$ for ARD prior with optimal hyper-parameters and flat priors pdf. }
+\label{fig:md3}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Conclusion}
+\begin{newblockc}{Conclusion}
+\itb{The concept of automatic relevance determination (ARD) is exploited as an automatic model selection tool with application to nonlinear dynamical systems modelled using stochastic ordinary differential equations (ODE).}
+\itb{ARD approach is validated using a synthetically generated nonlinear aeroelastic oscillations.}
+\itb{Both Laplace and Gaussian ARD prior produced same parameter sparsity level.}
+\itb{Derivative-free optimization techniques with bound constraint are well-suited for optimizing model evidence due to the flatness of objective function (Log-evidence) away from maxima.}
+\end{newblockc}
+
+\begin{newblockc}{Future direction}
+\itb{Using gradient/hessian information to expedite the optimization of model evidence.}
+\itb{Comparing the ARD approach to LASSO/Ridge regression techniques.}
+\end{newblockc}
+
+{\begin{center} \footnotesize R. Sandhu, C. Pettit, M. Khalil, D. Poirel, A. Sarkar, Bayesian model selection using automatic relevance determination for nonlinear dynamical systems, Computer Methods in Applied Mechanics and Engineering (2017).\end{center}}
+
+\end{frame}
+
+\begin{frame}{Acknowledgement}
+ \alertb{Thank you.}
+ 
+\begin{newblockc}{Financial contributions}
+\itb{Department of National Defence, Canada}
+\itb{Ontario Graduate Scholarship program}
+ \itb{Carleton University, Ottawa, Canada}
+ \itb{Natural Sciences and Engineering Research Council, Canada}
+\end{newblockc}
+\begin{newblockc}{Supercomputers used}
+ \itb{HP Linux Cluster, Carleton University, Ottawa, Canada}
+ \itb{CLUMEQ, McGill University, Montreal, Canada}
+ \itb{SciNet, University Of Toronto, Toronto, Canada}
+\end{newblockc}
+
+\begin{newblockc}{External libraries used}
+ \itb{Dakota, UQ Toolkit (UQTk) [Developed by Sandia National Lab]}
+ \itb{Armadillo (Linear algebra library for C++)}
+\end{newblockc}
+
+\end{frame}
+
+
+%\begin{frame}
+%\begin{center}
+%{\large \alert{Thank you.} \\[0.3in]  \alert{Questions?}}\\[1.0in]
+%{``Life is the art of reaching sufficient conclusions \\ from ins ff ci nt d ta"}
+%\end{center}
+%\end{frame}
+%
+%
+%%% other helpful stuff
+%
+%\begin{frame}{Comparison of evidence calculation methods}
+%\begin{newblockc}{Proposed model}
+%\itb{Same as the data-generating model:
+%\beq \label{eq:num_model1}
+%\ddth = a_1 \th + a_2 \dth + a_3 \th^2 + a_4 \th^3 + a_5 \th^2 \dth + \sigma \xi(t)
+%\eeq}
+%\itb{Joint prior pdf:
+%\seq{ 
+%\prob(\bphi|\bpsi) = \prob(\bphi) &= \prob(a_1) \prob(a_2) \prob(a_3)\prob(a_4)  \prob(a_5) \prob(\sigma) \\
+%& = \text{U(-10$^{3}$, 0) U(0, 8) U(-10$^{3}$,0) U(0,10$^{5}$) U(-10$^{-4}$,0) LN(0.002,0.5)}
+%}}
+%\end{newblockc}
+%{
+%\renewcommand{\arraystretch}{1.1}
+%\begin{table}[!htbp]
+%\centering
+%\begin{tabular}{@{\extracolsep{\fill}}|c|c|c|c|}
+%\hline
+% Method & Chib-Jeliazkov & Laplace method & Harmonic mean\\ \hline
+% log-evidence (10$^{4}$) & 2.33547 & 2.33548 & 2.34247 \\ \hline
+%\end{tabular}
+%\caption{ Comparison of evidence estimates from different methods}
+%\label{tab:logevidence}
+%\end{table}
+%}
+%\end{frame}
+%
+%\begin{frame}{Evidence maximization algorithm}
+%\begin{algorithmic}[1]
+%\State Initiate the MAP estimates $\smap$ and $\map$ and the RWM proposal covariance $C$.
+%\While{optimization stopping criterion is not met} 
+%  \State Propose a new $\bpsi$ using line-search algorithm
+%  \State Initiate the MCMC sampler using $\map$ and $\bSigma$ from previous iteration.
+%  \While{chain stopping criterion is not met}
+%    \State Generate W number of MCMC samples on each core.
+%    \State Update $\map$ at each accepted Markov chain move.
+%    \State Calculate the sample covariance $\bSigma$ using samples from all cores.
+%    \State Update the proposal covariance $C$ using $\bSigma$
+%    \State Update $\map$ as the best of all cores.
+%  \EndWhile
+%  \State Calculate evidence by equating the new $\map$ and $\bSigma$ in \eqref{eq:laplace}. 
+%  \If {New evidence optimum is found} Update $\smap$
+%  \EndIf
+%\EndWhile
+%  \end{algorithmic}
+%\end{frame}
+%
+%\begin{frame}{Laplace's method of calculating evidence}
+%\beq \label{evidence_int}
+%\prob(\bdn|\bphi) =  \prod_{k=1}^{\nd} \int \prob(\bdk|\bxjk,\bphi) \prob(\bxjk|\bdtokm,\bphi) d\bxjk
+%\eeq
+%\beq \label{eq:logevid}
+%\ln \prob(\bdn|\bpsi) = \ln \left[ \int \exp \{\cL(\bphi,\bpsi)\} d\bphi\right] 
+%\eeq
+%\beq \label{eq:taylor}
+%\cL(\bphi,\bpsi) \approx \cL(\map,\bpsi) - \half (\bphi - \map)^T \bSigma(\bpsi)^{-1}  (\bphi - \map)
+%\eeq
+%\beq
+%\Hess(\bpsi) = - \bSigma(\bpsi)^{-1} = \df{\partial^2 \cL(\bphi,\bpsi)}{\partial \bphi\bphi^T}\, \bigg|_{\displaystyle \bphi =\map}  .
+%\eeq
+%\end{frame}
+%
+%\begin{frame}{Laplace's method of calculating evidence (Contd.)}
+%\seq{
+%\ln \prob(\bdn|\bpsi) & \approx \ln \left[ \int \exp \left\{ \cL(\map,\bpsi) - \half (\bphi - \map)^T \bSigma(\bpsi)^{-1}  (\bphi - \map)\right\} d\bphi\right] \\
+%& \approx \ln \left[ \int \exp \{\cL(\map,\bpsi)\} \exp  \left\{- \half (\bphi - \map)^T \bSigma(\bpsi)^{-1}  (\bphi - \map)\right\} d\bphi\right] \\
+%& \approx \ln\left[ \{ \exp \{\cL(\map,\bpsi)\}\right] + \ln \left[ \int \exp  \left\{- \half (\bphi - \map)^T \bSigma(\bpsi)^{-1}  (\bphi - \map)\right\} d\bphi\right] \\
+%& \approx \cL(\map,\bpsi) + \ln   \sqrt{\df{(2 \pi)^{\np}}{\deter{\bSigma(\bpsi)^{-1}} }} \\
+%& \approx \cL(\map,\bpsi) + \df{\np}{2} \ln 2 \pi - \half \ln\deter{\bSigma(\bpsi)^{-1}}  \\ 
+%& \approx \cL(\map,\bpsi) + \df{\np}{2} \ln 2 \pi + \half\ln\deter{\bSigma(\bpsi)} \label{eq:laplace}
+%}
+%\end{frame}
+
+
+\end{document}
